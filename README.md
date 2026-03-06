@@ -2,6 +2,10 @@
 
 Minimal SSR todo app with [Effect](https://effect.website), [HTMX](https://htmx.org), [Tailwind CSS](https://tailwindcss.com), [DaisyUI](https://daisyui.com), running on [Bun](https://bun.sh).
 
+## Demo
+
+![Todo demo](docs/2026-03-06%2010.56.00.gif)
+
 ## Stack
 
 - Runtime: Bun
