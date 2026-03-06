@@ -1,4 +1,5 @@
 import { LayoutView } from "../Layout/Layout.view.tsx";
+import { TodoItemSkeletonView } from "../TodoItem/TodoItem.view.tsx";
 import { TodoListSkeletonView } from "../TodoList/TodoList.view.tsx";
 import type { ViewProps } from "../ViewProps.ts";
 import type * as TodoPageModel from "./TodoPage.model.ts";
@@ -21,9 +22,8 @@ export const TodoPageView = ({
               hx-post={model.addActionUrl}
               hx-target="#todo-list .todo-list-items"
               hx-swap="beforeend"
+              hx-indicator="#todo-add-pending-skeleton"
               hx-disabled-elt="find button[type='submit']"
-              hx-on--after-request="this.reset(); window.removePendingTodoSkeleton()"
-              hx-on--before-request="window.appendTodoSkeleton(event)"
             >
               <input
                 type="text"
@@ -47,6 +47,12 @@ export const TodoPageView = ({
             hx-swap="innerHTML"
           >
             <TodoListSkeletonView />
+          </div>
+          <div class="todo-list-items mt-3 flex flex-col gap-3">
+            <TodoItemSkeletonView
+              id="todo-add-pending-skeleton"
+              wrapperClass="todo-item-pending-skeleton htmx-indicator"
+            />
           </div>
         </section>
       </div>

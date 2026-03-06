@@ -1,2 +1,20 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+#todo-add-pending-skeleton {
+  display: none;
+}
+
+#todo-add-pending-skeleton.htmx-request {
+  display: block;
+}
+
+.todo-list-items .card.htmx-request {
+  opacity: 0.35;
+  transform: translateX(0.5rem);
+}
+
+.todo-list-items .card.htmx-swapping {
+  opacity: 0;
+  transform: translateX(0.5rem);
+}

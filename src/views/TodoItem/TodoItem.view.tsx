@@ -2,6 +2,30 @@ import type { ViewProps } from "../ViewProps.ts";
 import type * as TodoItemModel from "./TodoItem.model.ts";
 
 /**
+ * Renders a non-interactive skeleton placeholder for a todo card.
+ */
+export const TodoItemSkeletonView = ({
+  wrapperClass = "",
+  id,
+}: {
+  wrapperClass?: string;
+  id?: string;
+}) => (
+  <div
+    class={`card bg-base-100 border border-base-300 shadow-md rounded-xl ${wrapperClass}`}
+    id={id}
+  >
+    <div class="card-body p-4 flex-row items-center gap-4">
+      <div class="skeleton h-5 w-2/3" />
+      <div class="ml-auto flex gap-3">
+        <div class="skeleton h-10 w-20 rounded-btn" />
+        <div class="skeleton h-10 w-24 rounded-btn" />
+      </div>
+    </div>
+  </div>
+);
+
+/**
  * Renders a single interactive todo card with HTMX actions.
  */
 export const TodoItemView = ({
@@ -44,11 +68,9 @@ export const TodoItemView = ({
           class="btn btn-sm btn-error"
           hx-post={model.deleteUrl}
           hx-target={`#${model.targetId}`}
-          hx-swap="delete"
+          hx-swap="delete swap:200ms"
+          hx-indicator={`#${model.targetId}`}
           hx-disabled-elt="this"
-          hx-on--before-request="this.closest('.card')?.classList.add('opacity-0', 'translate-x-2')"
-          hx-on--after-request="if (event.detail.successful) this.closest('.card')?.remove()"
-          hx-on--response-error="this.closest('.card')?.classList.remove('opacity-0', 'translate-x-2')"
         >
           Delete
         </button>
