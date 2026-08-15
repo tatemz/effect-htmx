@@ -47,7 +47,7 @@ export const TodoItemView = ({
             hx-post={model.undoUrl}
             hx-target={`#${model.targetId}`}
             hx-swap="outerHTML"
-            hx-disabled-elt="this"
+            hx-disable="this"
           >
             Undo
           </button>
@@ -58,7 +58,7 @@ export const TodoItemView = ({
             hx-post={model.doneUrl}
             hx-target={`#${model.targetId}`}
             hx-swap="outerHTML"
-            hx-disabled-elt="this"
+            hx-disable="this"
           >
             Done
           </button>
@@ -70,7 +70,7 @@ export const TodoItemView = ({
           hx-target={`#${model.targetId}`}
           hx-swap="delete swap:200ms"
           hx-indicator={`#${model.targetId}`}
-          hx-disabled-elt="this"
+          hx-disable="this"
         >
           Delete
         </button>

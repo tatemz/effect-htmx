@@ -11,7 +11,7 @@ Minimal SSR todo app with [Effect](https://effect.website), [HTMX](https://htmx.
 - Runtime: Bun
 - Server: Effect `HttpApi` + `@effect/platform-bun`
 - Rendering: SSR with `@kitajs/html` TSX views
-- Interactions: HTMX fragment requests
+- Interactions: HTMX 4 fragment requests
 - Styling: Tailwind v4 + DaisyUI
 
 ## Getting Started

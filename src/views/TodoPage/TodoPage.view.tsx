@@ -23,7 +23,7 @@ export const TodoPageView = ({
               hx-target="#todo-list .todo-list-items"
               hx-swap="beforeend"
               hx-indicator="#todo-add-pending-skeleton"
-              hx-disabled-elt="find button[type='submit']"
+              hx-disable="find button[type='submit']"
             >
               <input
                 type="text"

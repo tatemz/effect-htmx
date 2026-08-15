@@ -8,7 +8,7 @@
         "@effect/platform-bun": "4.0.0-rc.109",
         "@kitajs/html": "^4.2.13",
         "effect": "4.0.0-rc.109",
-        "htmx.org": "^2.0.8",
+        "htmx.org": "4.0.0-beta6",
       },
       "devDependencies": {
         "@biomejs/biome": "^2.4.6",
@@ -151,7 +151,7 @@
 
     "graceful-fs": ["graceful-fs@4.2.11", "", {}, "sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ=="],
 
-    "htmx.org": ["htmx.org@2.0.8", "", {}, "sha512-fm297iru0iWsNJlBrjvtN7V9zjaxd+69Oqjh4F/Vq9Wwi2kFisLcrLCiv5oBX0KLfOX/zG8AUo9ROMU5XUB44Q=="],
+    "htmx.org": ["htmx.org@4.0.0-beta6", "", { "bin": { "upgrade-check": "dist/scripts/upgrade-check.js" } }, "sha512-se3PisNRdv7g988rKSOqsM6y/nB+7HOI8RrJYoRuK01nY1+uDBFLgdQEzLVXITLlXblvyOBZOu30hDu69keSfw=="],
 
     "is-extglob": ["is-extglob@2.1.1", "", {}, "sha512-SbKbANkN603Vi4jEZv49LeVJMn4yGwsbzZworEoyEiutsN3nJYdbO36zfhGJ6QEDpOZIFkDtnq5JRxmvl3jsoQ=="],
 
