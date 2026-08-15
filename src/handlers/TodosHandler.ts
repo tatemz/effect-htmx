@@ -1,7 +1,7 @@
-import { HttpServerResponse } from "@effect/platform";
-import * as HttpApiBuilder from "@effect/platform/HttpApiBuilder";
 import * as Effect from "effect/Effect";
 import * as Fn from "effect/Function";
+import * as HttpServerResponse from "effect/unstable/http/HttpServerResponse";
+import * as HttpApiBuilder from "effect/unstable/httpapi/HttpApiBuilder";
 import { Api } from "../api/Api.ts";
 import {
   addAction,
@@ -12,8 +12,8 @@ import {
   undoAction,
 } from "../routes/todos/index.ts";
 
-const handle500s = Effect.catchAll(() =>
-  HttpServerResponse.empty({ status: 500 }),
+const handle500s = Effect.catch(() =>
+  Effect.succeed(HttpServerResponse.empty({ status: 500 })),
 );
 
 export const TodosHandlerLive = HttpApiBuilder.group(Api, "todos", (handlers) =>

@@ -1,19 +1,21 @@
-import * as HttpApiBuilder from "@effect/platform/HttpApiBuilder";
-import * as HttpServerResponse from "@effect/platform/HttpServerResponse";
 import * as Effect from "effect/Effect";
+import * as HttpRouter from "effect/unstable/http/HttpRouter";
+import * as HttpServerResponse from "effect/unstable/http/HttpServerResponse";
 
 const distFile = (file: string) =>
   new URL(`../../dist/${file}`, import.meta.url).pathname;
 
-export const StaticFilesLive = HttpApiBuilder.Router.use((router) =>
+export const StaticFilesLive = HttpRouter.use((router) =>
   Effect.all([
-    router.get(
+    router.add(
+      "GET",
       "/styles.css",
       HttpServerResponse.file(distFile("styles.css"), {
         headers: { "Content-Type": "text/css" },
       }),
     ),
-    router.get(
+    router.add(
+      "GET",
       "/client.js",
       HttpServerResponse.file(distFile("client.js"), {
         headers: { "Content-Type": "application/javascript" },

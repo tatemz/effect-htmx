@@ -1,6 +1,6 @@
-import * as HttpServerResponse from "@effect/platform/HttpServerResponse";
 import type { Component } from "@kitajs/html";
 import * as Effect from "effect/Effect";
+import * as HttpServerResponse from "effect/unstable/http/HttpServerResponse";
 import type { ViewProps } from "./views/ViewProps.ts";
 
 export const buildMvcHtmlResponse = <M>({

@@ -26,10 +26,9 @@
     "typescript": "^5"
   },
   "dependencies": {
-    "@effect/platform": "^0.94.5",
-    "@effect/platform-bun": "^0.87.1",
+    "@effect/platform-bun": "4.0.0-rc.109",
     "@kitajs/html": "^4.2.13",
-    "effect": "^3.19.19",
+    "effect": "4.0.0-rc.109",
     "htmx.org": "^2.0.8"
   }
 }

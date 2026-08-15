@@ -1,8 +1,10 @@
-import * as KeyValueStore from "@effect/platform/KeyValueStore";
+import * as Context from "effect/Context";
 import * as Duration from "effect/Duration";
 import * as Effect from "effect/Effect";
+import * as Layer from "effect/Layer";
 import * as Option from "effect/Option";
 import * as Schema from "effect/Schema";
+import * as KeyValueStore from "effect/unstable/persistence/KeyValueStore";
 
 const SIMULATED_LATENCY = Duration.seconds(1);
 
@@ -16,16 +18,24 @@ export class Todo extends Schema.Class<Todo>("Todo")({
 }) {}
 
 const KEY = "todos";
+const Todos = Schema.Array(Todo);
 
-const { tag: TodoStore, layer: TodoStoreLayer } = KeyValueStore.layerSchema(
-  Schema.Array(Todo),
-  "TodoStore",
-);
+class TodoStore extends Context.Service<
+  TodoStore,
+  KeyValueStore.SchemaStore<typeof Todos>
+>()("TodoStore") {
+  static readonly layer = Layer.effect(
+    this,
+    Effect.map(KeyValueStore.KeyValueStore, (store) =>
+      KeyValueStore.toSchemaStore(store, Todos),
+    ),
+  );
+}
 
 /**
  * In-memory key-value store layer used by todo domain effects.
  */
-export { TodoStoreLayer };
+export const TodoStoreLayer = TodoStore.layer;
 
 /**
  * Lists all todos from the store with simulated latency.
