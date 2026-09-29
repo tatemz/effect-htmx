@@ -3,11 +3,6 @@
   "files": {
     "includes": ["src/**"]
   },
-  "css": {
-    "parser": {
-      "tailwindDirectives": true
-    }
-  },
   "formatter": {
     "indentStyle": "space",
     "indentWidth": 2

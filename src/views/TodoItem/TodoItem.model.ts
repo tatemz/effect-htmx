@@ -15,5 +15,4 @@ export const TodoItemModel = Schema.TaggedStruct("TodoItemModel", {
   undoUrl: Schema.String,
   deleteUrl: Schema.String,
   targetId: Schema.String,
-  titleClass: Schema.String,
 });

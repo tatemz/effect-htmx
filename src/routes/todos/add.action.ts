@@ -2,7 +2,7 @@ import * as Effect from "effect/Effect";
 import * as Todo from "../../domain/Todo.ts";
 import { buildMvcHtmlResponse } from "../../handler.ts";
 import * as TodoItemFactory from "../../views/TodoItem/TodoItem.factory.ts";
-import { TodoItemView } from "../../views/TodoItem/TodoItem.view.tsx";
+import { TodoItemView } from "../../views/TodoItem/TodoItem.view.ts";
 
 /**
  * Creates a todo from form payload and returns the new todo card fragment.

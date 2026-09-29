@@ -13,5 +13,4 @@ export const toTodoItem = (todo: Todo): TodoItemModel.TodoItemModel =>
     undoUrl: `/todos/${todo.id}/undo`,
     deleteUrl: `/todos/${todo.id}/delete`,
     targetId: `todo-${todo.id}`,
-    titleClass: todo.completed ? "line-through opacity-50" : "",
   });

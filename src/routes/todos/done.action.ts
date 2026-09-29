@@ -3,7 +3,7 @@ import * as HttpServerResponse from "effect/unstable/http/HttpServerResponse";
 import * as Todo from "../../domain/Todo.ts";
 import { buildMvcHtmlResponse } from "../../handler.ts";
 import * as TodoItemFactory from "../../views/TodoItem/TodoItem.factory.ts";
-import { TodoItemView } from "../../views/TodoItem/TodoItem.view.tsx";
+import { TodoItemView } from "../../views/TodoItem/TodoItem.view.ts";
 
 /**
  * Marks a todo as done and returns the updated todo card fragment.

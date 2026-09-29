@@ -1,6 +1,6 @@
 # effect-htmx
 
-Minimal SSR todo app with [Effect](https://effect.website), [HTMX](https://htmx.org), [Tailwind CSS](https://tailwindcss.com), [DaisyUI](https://daisyui.com), running on [Bun](https://bun.sh).
+Minimal SSR todo app with [Effect](https://effect.website), [HTMX](https://htmx.org), [@thi.ng/hiccup](https://thi.ng/hiccup), running on [Bun](https://bun.sh).
 
 ## Demo
 
@@ -10,9 +10,9 @@ Minimal SSR todo app with [Effect](https://effect.website), [HTMX](https://htmx.
 
 - Runtime: Bun
 - Server: Effect `HttpApi` + `@effect/platform-bun`
-- Rendering: SSR with `@kitajs/html` TSX views
+- Rendering: SSR with `@thi.ng/hiccup` + `@thi.ng/hiccup-html` views
 - Interactions: HTMX 4 fragment requests
-- Styling: Tailwind v4 + DaisyUI
+- Styling: `@thi.ng/hiccup-css` stylesheets (no Tailwind)
 
 ## Getting Started
 
@@ -31,7 +31,7 @@ Open [http://localhost:3000](http://localhost:3000).
 `bun run dev` does an initial build, then starts:
 
 - `dev:server` — server watch/restart
-- `dev:css` — Tailwind CSS watch build
+- `dev:css` — hiccup-css watch build
 - `dev:client` — client JS watch build
 
 ## Scripts
@@ -71,7 +71,7 @@ bun run format      # biome write fixes
 - `src/api/` — typed HTTP API definitions
 - `src/handlers/` — API group handlers
 - `src/routes/todos/` — loaders/actions
-- `src/views/` — SSR view models, factories, TSX views
+- `src/views/` — SSR view models, factories, hiccup views
 - `src/domain/Todo.ts` — todo domain logic + in-memory store
 - `src/client.ts` — HTMX bootstrap + small client behaviors
-- `src/global.css` — Tailwind + DaisyUI entry
+- `src/stylesheets.ts` — hiccup-css stylesheet definitions

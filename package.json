@@ -5,10 +5,10 @@
   "private": true,
   "scripts": {
     "dev:server": "bun run --watch src/server.ts",
-    "dev:css": "bunx @tailwindcss/cli -i src/global.css -o dist/styles.css --watch",
+    "dev:css": "bun run --watch scripts/build-styles.ts",
     "dev:client": "bun build src/client.ts --outfile dist/client.js --target browser --watch --no-clear-screen",
     "dev": "bun run build && bun run dev:css & bun run dev:client & bun run dev:server",
-    "build:css": "bunx @tailwindcss/cli -i src/global.css -o dist/styles.css --minify",
+    "build:css": "bun run scripts/build-styles.ts",
     "build:client": "bun build src/client.ts --outfile dist/client.js --target browser",
     "build": "bun run build:css && bun run build:client",
     "start": "bun run src/server.ts",
@@ -17,17 +17,16 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.6",
-    "@tailwindcss/cli": "^4.2.1",
-    "@types/bun": "latest",
-    "daisyui": "^5.5.19",
-    "tailwindcss": "^4.2.1"
+    "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^5"
   },
   "dependencies": {
     "@effect/platform-bun": "4.0.0-rc.111",
-    "@kitajs/html": "^4.2.13",
+    "@thi.ng/hiccup": "^5.4.14",
+    "@thi.ng/hiccup-css": "^2.8.4",
+    "@thi.ng/hiccup-html": "^2.8.10",
     "effect": "4.0.0-rc.111",
     "htmx.org": "4.0.0-beta6"
   }
